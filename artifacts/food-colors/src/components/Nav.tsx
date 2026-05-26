@@ -1,79 +1,100 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 80);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Products", href: "#products" },
-    { name: "Certifications", href: "#certifications" },
-    { name: "Infrastructure", href: "#infrastructure" },
-    { name: "Global Export", href: "#global-export" },
-    { name: "Contact", href: "#contact" },
+    { label: "About", href: "#about" },
+    { label: "Products", href: "#products" },
+    { label: "Factory", href: "#factory" },
+    { label: "Export", href: "#export" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#0a0a0a] shadow-md border-b border-white/10" : "bg-[#0a0a0a]"
-      }`}
-    >
-      <div className="container mx-auto px-6 max-w-7xl h-20 flex items-center justify-between">
-        <a href="#" className="flex flex-col group text-white">
-          <span className="font-serif text-2xl font-bold tracking-wide">ChromaIndia</span>
-          <span className="h-[2px] w-8 bg-[#c9a84c] group-hover:w-full transition-all duration-500"></span>
-        </a>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-[#c9a84c] transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? "backdrop-blur-sm bg-[#f5f0e8]/90 py-4 shadow-sm"
+            : "bg-transparent py-6"
+        }`}
+      >
+        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+          <a
+            href="/"
+            className="font-serif italic font-semibold text-2xl text-[#3a3a35]"
+            data-testid="nav-logo"
+          >
+            ChromaIndia
+          </a>
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="font-sans font-normal uppercase text-xs tracking-widest text-[#3a3a35] relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-[#b8965a] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
+                data-testid={`nav-link-${link.label.toLowerCase()}`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <button
+            className="md:hidden text-[#3a3a35]"
+            onClick={() => setMobileMenuOpen(true)}
+            data-testid="nav-mobile-open"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
         </div>
+      </header>
 
-        {/* Mobile Nav Toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-          data-testid="button-mobile-menu"
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden bg-[#0a0a0a] border-t border-white/10 px-6 py-4 flex flex-col space-y-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-white/80 hover:text-[#c9a84c] transition-colors"
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-[#2d3d2d] flex flex-col justify-center items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <button
+              className="absolute top-6 right-6 text-[#f5f0e8]"
+              onClick={() => setMobileMenuOpen(false)}
+              data-testid="nav-mobile-close"
             >
-              {link.name}
-            </a>
-          ))}
-        </div>
-      )}
-      <div className="h-[1px] w-full bg-[#1a1a1a]"></div>
-    </nav>
+              <X className="w-8 h-8" />
+            </button>
+            <div className="flex flex-col gap-8 text-center">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  className="font-serif text-4xl text-[#f5f0e8] hover:text-[#b8965a] transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

@@ -9,11 +9,8 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -36,75 +33,87 @@ export default function Contact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast.success("Inquiry Submitted", {
-      description: "Our export team will contact you shortly.",
+    toast.success("Inquiry Received", {
+      description: "Our export team will be in touch.",
     });
     form.reset();
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[#f7f5f2]">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-16">
+    <section id="contact" className="py-32 bg-[#2d3d2d] relative">
+      <div className="grain-overlay" aria-hidden="true" />
+      
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col"
           >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="h-[1px] w-8 bg-[#c9a84c]"></div>
-              <span className="text-[#0a0a0a]/60 uppercase tracking-[0.2em] text-xs font-semibold">Inquiries</span>
-            </div>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0a0a0a] mb-8">Get in Touch</h2>
+            <h2 className="font-serif italic font-bold text-5xl md:text-6xl text-[#f5f0e8] mb-4 leading-tight">
+              Begin a Conversation
+            </h2>
+            <p className="font-sans font-light text-[#9e9990] text-sm mb-12">
+              Our export team responds within 24 hours.
+            </p>
             
-            <div className="space-y-8 text-[#0a0a0a]/80">
+            <div className="space-y-8 mt-auto">
               <div>
-                <h4 className="font-bold text-[#0a0a0a] uppercase tracking-wide text-sm mb-2">Corporate Office & Works</h4>
-                <p>Industrial Estate, Phase II<br/>Mumbai, Maharashtra, India 400001</p>
+                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">Corporate Office</h4>
+                <p className="font-sans font-light text-[#f5f0e8] text-sm leading-relaxed">
+                  Industrial Estate, Phase II<br/>Mumbai, Maharashtra, India 400001
+                </p>
               </div>
               
               <div>
-                <h4 className="font-bold text-[#0a0a0a] uppercase tracking-wide text-sm mb-2">Direct Contact</h4>
-                <p>exports@chromaindia.com<br/>+91 98765 43210</p>
+                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">Direct Contact</h4>
+                <p className="font-sans font-light text-[#f5f0e8] text-sm leading-relaxed">
+                  exports@chromaindia.com<br/>+91 98765 43210
+                </p>
               </div>
 
-              <div className="pt-4 border-t border-[#0a0a0a]/10">
+              <div>
+                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">Instant Message</h4>
                 <a 
                   href="https://wa.me/919876543210" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-medium text-sm hover:bg-[#1ebe5d] transition-colors"
+                  className="inline-flex items-center gap-2 font-sans font-light text-[#f5f0e8] text-sm hover:text-[#b8965a] transition-colors mt-1"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Chat on WhatsApp
+                  WhatsApp Us
                 </a>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-8 border border-[#e5e5e5]"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col justify-center"
           >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col">
+                
+                <div className="grid md:grid-cols-2 gap-x-8">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-[#0a0a0a]">Full Name</FormLabel>
+                      <FormItem className="mb-8 relative">
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} className="border-[#d5d5d5] focus-visible:ring-[#c9a84c] rounded-none bg-[#f7f5f2]" />
+                          <input 
+                            placeholder="Name" 
+                            {...field} 
+                            className="w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none text-[#f5f0e8] placeholder:text-[#9e9990]/60 font-sans font-light py-3 transition-colors rounded-none" 
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="absolute -bottom-5" />
                       </FormItem>
                     )}
                   />
@@ -112,28 +121,34 @@ export default function Contact() {
                     control={form.control}
                     name="company"
                     render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-[#0a0a0a]">Company</FormLabel>
+                      <FormItem className="mb-8 relative">
                         <FormControl>
-                          <Input placeholder="Global Foods Inc." {...field} className="border-[#d5d5d5] focus-visible:ring-[#c9a84c] rounded-none bg-[#f7f5f2]" />
+                          <input 
+                            placeholder="Company" 
+                            {...field} 
+                            className="w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none text-[#f5f0e8] placeholder:text-[#9e9990]/60 font-sans font-light py-3 transition-colors rounded-none" 
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="absolute -bottom-5" />
                       </FormItem>
                     )}
                   />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-x-8">
                   <FormField
                     control={form.control}
                     name="country"
                     render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-[#0a0a0a]">Country</FormLabel>
+                      <FormItem className="mb-8 relative">
                         <FormControl>
-                          <Input placeholder="e.g. United Kingdom" {...field} className="border-[#d5d5d5] focus-visible:ring-[#c9a84c] rounded-none bg-[#f7f5f2]" />
+                          <input 
+                            placeholder="Country" 
+                            {...field} 
+                            className="w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none text-[#f5f0e8] placeholder:text-[#9e9990]/60 font-sans font-light py-3 transition-colors rounded-none" 
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="absolute -bottom-5" />
                       </FormItem>
                     )}
                   />
@@ -141,21 +156,21 @@ export default function Contact() {
                     control={form.control}
                     name="productInterest"
                     render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-[#0a0a0a]">Product Interest</FormLabel>
+                      <FormItem className="mb-8 relative">
                         <FormControl>
                           <select 
                             {...field} 
-                            className="flex h-10 w-full border border-[#d5d5d5] bg-[#f7f5f2] px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm rounded-none"
+                            className={`w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none font-sans font-light py-3 transition-colors rounded-none appearance-none ${field.value ? 'text-[#f5f0e8]' : 'text-[#9e9990]/60'}`}
                           >
-                            <option value="" disabled>Select a product...</option>
-                            <option value="synthetic">Synthetic Food Colors</option>
-                            <option value="lake">Lake Colors</option>
-                            <option value="blended">Blended Colors</option>
-                            <option value="custom">Custom Formulation</option>
+                            <option value="" disabled className="bg-[#2d3d2d] text-[#9e9990]/60">Product Interest</option>
+                            <option value="synthetic" className="bg-[#2d3d2d] text-[#f5f0e8]">Synthetic Food Colors</option>
+                            <option value="lake" className="bg-[#2d3d2d] text-[#f5f0e8]">Lake Colors</option>
+                            <option value="blended" className="bg-[#2d3d2d] text-[#f5f0e8]">Blended Colors</option>
+                            <option value="custom" className="bg-[#2d3d2d] text-[#f5f0e8]">Custom Formulations</option>
+                            <option value="industrial" className="bg-[#2d3d2d] text-[#f5f0e8]">Industrial Additives</option>
                           </select>
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="absolute -bottom-5" />
                       </FormItem>
                     )}
                   />
@@ -165,27 +180,36 @@ export default function Contact() {
                   control={form.control}
                   name="message"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-[#0a0a0a]">Message</FormLabel>
+                    <FormItem className="mb-12 relative">
                       <FormControl>
-                        <Textarea 
-                          placeholder="Please provide details about your volume requirements..." 
-                          className="min-h-[120px] border-[#d5d5d5] focus-visible:ring-[#c9a84c] rounded-none bg-[#f7f5f2]" 
+                        <textarea 
+                          placeholder="Message" 
+                          rows={4}
                           {...field} 
+                          className="w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none text-[#f5f0e8] placeholder:text-[#9e9990]/60 font-sans font-light py-3 transition-colors resize-none rounded-none" 
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="absolute -bottom-5" />
                     </FormItem>
                   )}
                 />
 
-                <button 
-                  type="submit" 
-                  className="w-full bg-[#c9a84c] hover:bg-[#b09240] text-[#0a0a0a] font-bold uppercase tracking-wide text-sm py-4 transition-colors"
-                  data-testid="button-submit-contact"
-                >
-                  Send Inquiry
-                </button>
+                <div className="mt-4">
+                  <button 
+                    type="submit" 
+                    className="group relative font-sans font-medium uppercase tracking-widest text-[#b8965a] text-sm pb-2 border-b border-transparent overflow-hidden inline-block"
+                    data-testid="button-submit-contact"
+                  >
+                    <span>SUBMIT INQUIRY</span>
+                    <motion.div 
+                      className="absolute bottom-0 left-0 w-full h-[1px] bg-[#b8965a] origin-left"
+                      initial={{ scaleX: 0 }}
+                      whileHover={{ scaleX: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </button>
+                </div>
+
               </form>
             </Form>
           </motion.div>

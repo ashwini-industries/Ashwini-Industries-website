@@ -1,6 +1,6 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster as SonnerToaster } from 'sonner';
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
@@ -19,7 +19,7 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    document.title = "ChromaIndia — Premium Food Color Manufacturer & Exporter";
+    document.title = "ChromaIndia — Crafting Color with Precision & Legacy";
   }, []);
 
   return (
@@ -28,7 +28,7 @@ function App() {
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <Router />
         </WouterRouter>
-        <Toaster />
+        <SonnerToaster position='bottom-center' theme='dark' />
       </TooltipProvider>
     </QueryClientProvider>
   );

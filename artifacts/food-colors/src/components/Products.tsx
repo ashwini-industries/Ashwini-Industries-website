@@ -4,68 +4,102 @@ import { Beaker, Layers, Blend, Settings, Factory } from "lucide-react";
 export default function Products() {
   const products = [
     {
-      icon: <Beaker className="w-8 h-8" strokeWidth={1.5} />,
+      id: "01",
       title: "Synthetic Food Colors",
-      description: "Primary food colors with uncompromising purity, delivering vibrant and stable hues for extensive applications."
+      description: "Primary food colors with uncompromising purity, delivering vibrant and stable hues for extensive applications.",
+      icon: <Beaker className="w-8 h-8" strokeWidth={1} />,
     },
     {
-      icon: <Layers className="w-8 h-8" strokeWidth={1.5} />,
+      id: "02",
       title: "Lake Colors",
-      description: "Water-insoluble pigments optimized for high fat/oil products and dry powder applications."
+      description: "Water-insoluble pigments optimized for high fat/oil products and dry powder applications.",
+      icon: <Layers className="w-8 h-8" strokeWidth={1} />,
     },
     {
-      icon: <Blend className="w-8 h-8" strokeWidth={1.5} />,
+      id: "03",
       title: "Blended Colors",
-      description: "Precision-engineered secondary colors crafted from primary blends to achieve exact, repeatable shades."
+      description: "Precision-engineered secondary colors crafted from primary blends to achieve exact, repeatable shades.",
+      icon: <Blend className="w-8 h-8" strokeWidth={1} />,
     },
     {
-      icon: <Settings className="w-8 h-8" strokeWidth={1.5} />,
+      id: "04",
       title: "Custom Formulations",
-      description: "Tailored color solutions developed in our labs to match your specific product and process requirements."
+      description: "Tailored color solutions developed in our labs to match your specific product and process requirements.",
+      icon: <Settings className="w-8 h-8" strokeWidth={1} />,
     },
     {
-      icon: <Factory className="w-8 h-8" strokeWidth={1.5} />,
-      title: "Industrial Food Additives",
-      description: "Specialized non-color additives ensuring product stability, texture, and extended shelf life."
-    }
+      id: "05",
+      title: "Industrial Additives",
+      description: "Specialized non-color additives ensuring product stability, texture, and extended shelf life.",
+      icon: <Factory className="w-8 h-8" strokeWidth={1} />,
+    },
   ];
 
   return (
-    <section id="products" className="py-24 md:py-32 bg-[#f0eeeb]">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <motion.div 
+    <section id="products" className="pt-32 pb-48 bg-[#f5f0e8]">
+      <div className="container mx-auto px-6 md:px-12">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-[1px] w-8 bg-[#c9a84c]"></div>
-            <span className="text-[#0a0a0a]/60 uppercase tracking-[0.2em] text-xs font-semibold">Portfolio</span>
+          <div className="font-sans uppercase tracking-[0.3em] text-[#9e9990] text-xs mb-4">
+            PRODUCTS
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0a0a0a]">Our Product Range</h2>
+          <h2 className="font-serif italic font-semibold text-5xl text-[#3a3a35]">
+            Our Range
+          </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col">
           {products.map((product, i) => (
             <motion.div
-              key={i}
+              key={product.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-[#f7f5f2] p-8 border border-transparent hover:border-[#c9a84c] hover:bg-[#0a0a0a] transition-all duration-300 cursor-pointer"
+              transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <div className="text-[#0a0a0a] group-hover:text-[#c9a84c] transition-colors mb-6">
-                {product.icon}
-              </div>
-              <h3 className="font-serif text-xl font-bold text-[#0a0a0a] group-hover:text-[#f7f5f2] transition-colors mb-3">
-                {product.title}
-              </h3>
-              <p className="text-[#0a0a0a]/70 group-hover:text-[#f7f5f2]/70 transition-colors text-sm leading-relaxed">
-                {product.description}
-              </p>
+              <motion.div
+                whileHover="hover"
+                initial="initial"
+                className="flex flex-col md:flex-row items-start md:items-center py-12 px-6 gap-8 relative overflow-hidden transition-colors duration-500 hover:bg-[#e8dcc8]/30"
+              >
+                {/* Number */}
+                <motion.div
+                  variants={{
+                    initial: { color: "#e8dcc8", opacity: 0.5 },
+                    hover: { color: "rgba(184, 150, 90, 0.3)", opacity: 1 },
+                  }}
+                  className="font-serif font-light text-8xl md:w-32 shrink-0 leading-none"
+                >
+                  {product.id}
+                </motion.div>
+
+                {/* Content */}
+                <div className="flex-grow flex flex-col gap-2">
+                  <motion.h3
+                    variants={{
+                      initial: { color: "#3a3a35" },
+                      hover: { color: "#b8965a" },
+                    }}
+                    className="font-serif font-semibold text-2xl"
+                  >
+                    {product.title}
+                  </motion.h3>
+                  <p className="font-sans font-light text-[#9e9990] text-sm max-w-xl leading-relaxed">
+                    {product.description}
+                  </p>
+                </div>
+
+                {/* Icon */}
+                <div className="text-[#b8965a] shrink-0 md:pl-8">
+                  {product.icon}
+                </div>
+              </motion.div>
+              <hr className="border-t border-[#e8dcc8] w-full" />
             </motion.div>
           ))}
         </div>

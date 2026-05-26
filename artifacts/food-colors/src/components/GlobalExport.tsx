@@ -1,61 +1,76 @@
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
 
 export default function GlobalExport() {
   const regions = [
     "Europe", "Middle East", "Southeast Asia", "North America", "Africa", "CIS Countries"
   ];
 
-  const highlights = [
-    "Unwavering reliability in supply chains",
-    "On-time global delivery logistics",
-    "Comprehensive export documentation support"
+  const dots = [
+    { cx: 490, cy: 100, delay: 0 },
+    { cx: 560, cy: 165, delay: 0.5 },
+    { cx: 700, cy: 200, delay: 1 },
+    { cx: 175, cy: 150, delay: 1.5 },
+    { cx: 490, cy: 270, delay: 2 },
   ];
 
   return (
-    <section id="global-export" className="py-24 md:py-32 bg-[#f0eeeb]">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-serif text-4xl md:text-5xl font-bold text-[#0a0a0a] mb-4"
-          >
-            Serving the World
-          </motion.h2>
+    <section id="export" className="py-32 bg-[#2d3d2d] relative overflow-hidden">
+      <div className="grain-overlay" aria-hidden="true" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-24"
+        >
+          <h2 className="font-serif italic font-bold text-5xl md:text-6xl text-[#f5f0e8]">
+            A Global Reach
+          </h2>
+        </motion.div>
+
+        <div className="max-w-5xl mx-auto mb-16 relative">
+          <svg viewBox="0 0 960 480" className="w-full h-auto drop-shadow-sm">
+            {/* North America */}
+            <path d="M 80 100 C 80 80 100 60 140 70 C 180 75 220 100 230 130 C 240 160 220 190 200 200 C 185 210 160 220 140 215 C 110 205 90 190 80 170 Z" fill="rgba(245,240,232,0.08)" stroke="rgba(184,150,90,0.35)" strokeWidth="0.8" />
+            {/* South America */}
+            <path d="M 190 220 C 200 215 230 215 240 225 C 260 240 265 270 255 300 C 245 330 220 345 205 335 C 190 325 185 295 187 265 Z" fill="rgba(245,240,232,0.08)" stroke="rgba(184,150,90,0.35)" strokeWidth="0.8" />
+            {/* Europe */}
+            <path d="M 460 80 C 470 75 500 75 510 85 C 520 95 515 110 505 115 C 490 120 465 115 458 105 Z" fill="rgba(245,240,232,0.08)" stroke="rgba(184,150,90,0.35)" strokeWidth="0.8" />
+            {/* Africa */}
+            <path d="M 460 190 C 480 185 510 185 520 200 C 530 220 530 260 520 290 C 510 315 490 325 470 320 C 450 315 440 290 438 260 C 436 230 445 195 460 190 Z" fill="rgba(245,240,232,0.08)" stroke="rgba(184,150,90,0.35)" strokeWidth="0.8" />
+            {/* Asia */}
+            <path d="M 540 80 C 580 70 650 75 700 90 C 740 105 770 130 760 155 C 750 175 720 185 680 185 C 640 185 590 175 560 155 C 535 138 525 100 540 80 Z" fill="rgba(245,240,232,0.08)" stroke="rgba(184,150,90,0.35)" strokeWidth="0.8" />
+            {/* Australia */}
+            <path d="M 680 280 C 700 270 730 270 745 285 C 760 300 755 325 740 333 C 720 340 698 333 688 318 C 678 305 668 288 680 280 Z" fill="rgba(245,240,232,0.08)" stroke="rgba(184,150,90,0.35)" strokeWidth="0.8" />
+            
+            {dots.map((dot, i) => (
+              <circle
+                key={i}
+                cx={dot.cx}
+                cy={dot.cy}
+                r={3}
+                fill="#b8965a"
+                className="pulse-dot"
+                style={{ animationDelay: `${dot.delay}s` }}
+              />
+            ))}
+          </svg>
         </div>
 
-        {/* Abstract Map Area */}
-        <div className="max-w-4xl mx-auto mb-16 relative aspect-[2/1] border border-[#d5d5d5] bg-[#f7f5f2] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: "radial-gradient(#0a0a0a 1px, transparent 1px)",
-            backgroundSize: "20px 20px"
-          }}></div>
-          <p className="font-serif text-2xl text-[#0a0a0a]/30 tracking-widest relative z-10">[ GLOBAL REACH ]</p>
-        </div>
-
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
           {regions.map((region, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="bg-white border border-[#e5e5e5] py-3 px-4 text-center text-sm font-medium text-[#0a0a0a]"
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="border border-[#b8965a]/40 text-[#f5f0e8]/70 font-sans uppercase text-xs px-4 py-2 tracking-widest"
             >
               {region}
             </motion.div>
-          ))}
-        </div>
-
-        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
-          {highlights.map((highlight, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-[#c9a84c] shrink-0 mt-0.5" />
-              <p className="text-sm text-[#0a0a0a]/80 font-medium">{highlight}</p>
-            </div>
           ))}
         </div>
       </div>

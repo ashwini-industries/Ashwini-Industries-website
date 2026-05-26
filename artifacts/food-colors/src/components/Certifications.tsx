@@ -1,49 +1,70 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Award, FileCheck2, Globe2, FlaskConical } from "lucide-react";
 
 export default function Certifications() {
   const certs = [
-    { icon: <ShieldCheck />, title: "ISO 9001:2015", note: "Quality Management Systems" },
-    { icon: <Award />, title: "FSSAI Certified", note: "Food Safety Standards Authority" },
-    { icon: <FileCheck2 />, title: "GMP Compliant", note: "Good Manufacturing Practices" },
-    { icon: <Globe2 />, title: "Export Compliance", note: "International Trade Ready" },
-    { icon: <FlaskConical />, title: "Lab Tested Quality", note: "Rigorous In-House Testing" },
+    { title: "ISO 9001:2015", note: "Quality Management Systems" },
+    { title: "FSSAI Certified", note: "Food Safety Standards Authority" },
+    { title: "GMP Compliant", note: "Good Manufacturing Practices" },
+    { title: "Export Compliance", note: "International Trade Ready" },
+    { title: "Lab Tested & Certified", note: "Rigorous In-House Testing" },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
-    <section id="certifications" className="py-24 bg-[#f7f5f2]">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <motion.div 
+    <section id="certifications" className="py-32 bg-[#f5f0e8]">
+      <div className="container mx-auto px-6 md:px-12">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="mb-16"
         >
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0a0a0a] mb-4">Quality & Compliance</h2>
-          <p className="text-[#0a0a0a]/70 max-w-2xl mx-auto">
-            Our commitment to purity and safety is backed by internationally recognized certifications.
-          </p>
+          <h2 className="font-serif font-semibold text-5xl text-[#3a3a35]">
+            Compliance & Trust
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-wrap gap-6"
+        >
           {certs.map((cert, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-white border border-[#e5e5e5] p-6 flex flex-col items-center text-center group"
+              variants={item}
+              className="flex-1 min-w-[280px] border border-[#e8dcc8] p-8 flex flex-col bg-[#f5f0e8]"
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.8)" }}
             >
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#f0eeeb] text-[#0a0a0a] group-hover:bg-[#c9a84c] group-hover:text-white transition-colors mb-4">
-                {cert.icon}
+              <div className="w-12 h-12 rounded-full bg-[#8a9e8a] flex items-center justify-center mb-6">
+                <div className="w-8 h-8 rounded-full bg-[#6b7c5a]" />
               </div>
-              <h3 className="font-bold text-[#0a0a0a] text-sm mb-1">{cert.title}</h3>
-              <p className="text-xs text-[#0a0a0a]/60">{cert.note}</p>
+              <h3 className="font-serif font-semibold text-xl text-[#3a3a35] mt-4">
+                {cert.title}
+              </h3>
+              <p className="font-sans font-light text-xs text-[#9e9990] mt-2">
+                {cert.note}
+              </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

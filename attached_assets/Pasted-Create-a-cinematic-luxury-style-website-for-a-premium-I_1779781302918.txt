@@ -1,0 +1,155 @@
+Create a cinematic luxury-style website for a premium Indian food color manufacturing and export company.
+
+The website should NOT feel like a traditional business website with stacked sections scrolling vertically.
+
+Instead:
+design the experience like an immersive scrolling journey where new scenes/pages smoothly emerge, transition, slide, layer, or reveal into one another as the user scrolls.
+
+The scrolling experience should feel:
+- fluid
+- artistic
+- editorial
+- cinematic
+- premium
+- atmospheric
+
+Think:
+modern luxury fashion brand website × old-money aesthetics × industrial elegance.
+
+The website should feel expensive, timeless, calm, and sophisticated.
+
+COLOR PALETTE:
+Use muted old-money tones only:
+- warm beige
+- olive green
+- sage
+- ivory
+- muted gold
+- deep forest green
+- soft charcoal
+- warm gray
+
+Avoid:
+- bright colors
+- neon
+- pure black/white contrast
+- startup SaaS aesthetics
+- loud gradients
+- excessive blue tones
+
+TYPOGRAPHY:
+- elegant serif headings
+- clean minimalist sans-serif body text
+- large cinematic typography
+- spacious layouts
+- luxurious editorial spacing
+
+Use:
+- refined typography hierarchy
+- asymmetrical layouts
+- layered transitions
+- subtle grain textures
+- soft shadows
+- premium motion design
+
+TECH STACK:
+- Next.js
+- React
+- Tailwind CSS
+- Framer Motion
+- GSAP for advanced scroll animations
+
+IMPORTANT DESIGN DIRECTION:
+As the user scrolls:
+- sections should transform into each other
+- elements should fade, slide, pin, zoom, or reveal elegantly
+- pages should feel interconnected
+- transitions should feel smooth and immersive
+- avoid obvious “blocks” of sections
+
+The website should feel like a luxury visual story.
+
+WEBSITE FLOW:
+
+1. OPENING HERO EXPERIENCE
+- full-screen cinematic landing
+- elegant animated typography
+- subtle moving textures/background
+- premium headline:
+  “Crafting Color with Precision & Legacy”
+- smooth scroll cue
+- layered visual depth
+
+2. STORY / HERITAGE EXPERIENCE
+As user scrolls:
+- hero transforms into heritage section
+- background slowly changes tones
+- elegant storytelling about manufacturing excellence
+- minimal text
+- immersive visual transitions
+
+3. PRODUCT EXPERIENCE
+Products should emerge individually as cinematic panels/cards:
+- Synthetic Food Colors
+- Lake Colors
+- Custom Blends
+- Specialty Formulations
+
+Cards should:
+- float elegantly
+- slightly overlap
+- animate organically
+- feel editorial and luxurious
+
+4. MANUFACTURING / FACTORY EXPERIENCE
+Create immersive transitions showing:
+- machinery
+- quality testing
+- production
+- packaging
+
+Use:
+- pinned scrolling sections
+- parallax movement
+- layered imagery
+- cinematic reveals
+
+5. GLOBAL EXPORT EXPERIENCE
+Create a sophisticated global presence section:
+- animated elegant world visualization
+- minimal glowing routes
+- muted earthy palette
+- focus on trust and international standards
+
+6. CERTIFICATION EXPERIENCE
+Certifications should appear subtly and elegantly:
+- embossed card designs
+- minimal luxury feel
+- calm motion animations
+
+7. FINAL CONTACT EXPERIENCE
+The final section should feel calm and premium:
+- elegant inquiry form
+- muted olive/beige tones
+- minimal CTA
+- refined typography
+- soft ambient transitions
+
+GENERAL REQUIREMENTS:
+- cinematic scrolling website
+- immersive transitions
+- old money aesthetic
+- editorial luxury feel
+- minimal but emotional
+- premium motion design
+- smooth animations
+- responsive on all devices
+- production-quality code
+- elegant loading animation
+- refined microinteractions
+- sophisticated visual hierarchy
+
+MOST IMPORTANT:
+Do NOT make this look like a typical corporate exporter website.
+
+It should feel like a luxury industrial brand with timeless aesthetics and cinematic storytelling.
