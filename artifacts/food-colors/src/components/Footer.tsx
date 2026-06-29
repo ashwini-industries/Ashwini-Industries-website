@@ -1,4 +1,4 @@
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -30,9 +30,6 @@ export default function Footer() {
             <div className="flex gap-4 mt-6">
               <a href="#" className="text-[#f5f0e8]/40 hover:text-[#f5f0e8] transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-[#f5f0e8]/40 hover:text-[#f5f0e8] transition-colors" aria-label="X (Twitter)">
-                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </div>
