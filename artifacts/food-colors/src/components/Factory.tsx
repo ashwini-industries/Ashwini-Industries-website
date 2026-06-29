@@ -23,7 +23,7 @@ export default function Factory() {
           scrollTrigger: {
             trigger: outer,
             pin: true,
-            scrub: 1,
+            scrub: 0.15,
             end: () => `+=${outer.offsetWidth * 3}`,
           },
         });

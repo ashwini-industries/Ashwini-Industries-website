@@ -25,7 +25,7 @@ export default function Heritage() {
             className="md:w-[55%] flex flex-col justify-center md:pr-16"
           >
             <blockquote className="font-serif italic font-normal text-3xl md:text-5xl leading-relaxed text-[#3a3a35] mb-8">
-              "For over two decades, we have engineered color with the patience of craftsmen and the precision of scientists."
+              "For over three decades, we have engineered color with the patience of craftsmen and the precision of scientists."
             </blockquote>
             <p className="font-sans font-light text-[#9e9990] text-sm">
               — Ashwini Industries, Est. 1990
