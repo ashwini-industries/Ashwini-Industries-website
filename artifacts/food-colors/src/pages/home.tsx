@@ -8,6 +8,7 @@ import Certifications from "@/components/Certifications";
 import Factory from "@/components/Factory";
 import GlobalExport from "@/components/GlobalExport";
 import Contact from "@/components/Contact";
+import Location from "@/components/Location";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 
@@ -35,6 +36,7 @@ export default function Home() {
       <Factory />
       <GlobalExport />
       <Certifications />
+      <Location />
       <Contact />
       <Footer />
     </main>

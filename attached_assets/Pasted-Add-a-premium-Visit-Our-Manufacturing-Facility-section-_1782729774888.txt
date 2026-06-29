@@ -1,0 +1,96 @@
+Add a premium "Visit Our Manufacturing Facility" section near the bottom of the website.
+
+This section should feel professional, premium, and trustworthy—not like a fashion brand or a standard contact page.
+
+Design inspiration:
+- premium industrial manufacturers
+- luxury hospitality location pages
+- Swiss and German manufacturing companies
+- high-end architecture studios
+
+Requirements:
+
+1. Create a large full-width location section.
+
+2. Embed a Google Map displaying our manufacturing facility:
+
+Ashwini Industries
+203+204/2, Near Jain Dairy,
+Phase 2, GIDC, Naroda,
+Ahmedabad - 382330,
+Gujarat, India
+
+3. The map should:
+- occupy approximately 85-90% of the content width
+- have rounded corners (16px)
+- have a subtle muted gold/beige border
+- include a soft shadow
+- sit inside an elegant container
+- maintain the authentic Google Maps appearance
+
+4. Create a premium information card positioned over the upper-left section of the map.
+
+The card should contain:
+
+ASHWINI INDUSTRIES
+
+Food Colour Manufacturer & Exporter
+
+📍 Address:
+203+204/2, Near Jain Dairy,
+Phase 2, GIDC, Naroda,
+Ahmedabad - 382330
+
+📞 Phone:
+[placeholder]
+
+✉ Email:
+[placeholder]
+
+Buttons:
+- Get Directions
+- Contact Us
+
+5. Use the existing website color palette:
+- warm ivory
+- beige
+- olive green
+- muted gold
+- charcoal gray
+
+6. Add subtle animations:
+- section fades in on scroll
+- information card gently slides upward
+- buttons have understated hover effects
+
+7. Add an elegant heading above the map:
+
+"Visit Our Manufacturing Facility"
+
+with the subtitle:
+
+"Located in Ahmedabad, India, where decades of manufacturing expertise meet modern quality standards."
+
+8. Include subtle manufacturing trust indicators beneath the map:
+
+• Manufacturing Facility
+• Quality Control Laboratory
+• Export Operations
+• Industry Certifications
+
+9. The overall feeling should be:
+
+- premium
+- industrial
+- trustworthy
+- established
+- family-owned
+- internationally credible
+
+IMPORTANT:
+
+- Do NOT make this feel like a fashion website.
+- Do NOT make this feel like a SaaS company.
+- Do NOT use bright colors.
+- Do NOT create a generic contact section.
+- The result should feel like a premium manufacturing company with 30+ years of expertise and global aspirations.
