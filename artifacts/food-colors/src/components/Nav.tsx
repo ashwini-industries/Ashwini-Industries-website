@@ -37,7 +37,7 @@ export default function Nav() {
             className="font-serif italic font-semibold text-2xl text-[#3a3a35]"
             data-testid="nav-logo"
           >
-            ChromaIndia
+            Ashwini Industries
           </a>
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (

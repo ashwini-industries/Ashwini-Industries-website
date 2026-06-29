@@ -5,33 +5,45 @@ export default function Products() {
   const products = [
     {
       id: "01",
-      title: "Synthetic Food Colors",
-      description: "Primary food colors with uncompromising purity, delivering vibrant and stable hues for extensive applications.",
+      title: "Tartrazine",
+      description: "E102 — a bright lemon-yellow azo dye widely used in beverages, confectionery, and processed foods.",
       icon: <Beaker className="w-8 h-8" strokeWidth={1} />,
     },
     {
       id: "02",
-      title: "Lake Colors",
-      description: "Water-insoluble pigments optimized for high fat/oil products and dry powder applications.",
+      title: "Carmosine",
+      description: "E122 — a deep red azo dye valued for its strong tinctorial strength in jams, jellies, and dairy products.",
       icon: <Layers className="w-8 h-8" strokeWidth={1} />,
     },
     {
       id: "03",
-      title: "Blended Colors",
-      description: "Precision-engineered secondary colors crafted from primary blends to achieve exact, repeatable shades.",
+      title: "Amaranth",
+      description: "E123 — a dark red-purple dye delivering rich, stable color in alcoholic beverages and food coatings.",
       icon: <Blend className="w-8 h-8" strokeWidth={1} />,
     },
     {
       id: "04",
-      title: "Custom Formulations",
-      description: "Tailored color solutions developed in our labs to match your specific product and process requirements.",
+      title: "Ponceau 4R",
+      description: "E124 — a strawberry-red colorant prized for heat stability in baked goods, sauces, and canned products.",
       icon: <Settings className="w-8 h-8" strokeWidth={1} />,
     },
     {
       id: "05",
-      title: "Industrial Additives",
-      description: "Specialized non-color additives ensuring product stability, texture, and extended shelf life.",
+      title: "Sunset Yellow FCF",
+      description: "E110 — a warm orange-yellow dye offering excellent stability in beverages, snacks, and confectionery.",
       icon: <Factory className="w-8 h-8" strokeWidth={1} />,
+    },
+    {
+      id: "06",
+      title: "Allura Red",
+      description: "E129 — a bright red colorant with outstanding light and heat stability across a wide range of food applications.",
+      icon: <Beaker className="w-8 h-8" strokeWidth={1} />,
+    },
+    {
+      id: "07",
+      title: "Brilliant Blue FCF",
+      description: "E133 — a vivid blue dye used in confectionery, dairy, and beverages, stable across varying pH levels.",
+      icon: <Layers className="w-8 h-8" strokeWidth={1} />,
     },
   ];
 

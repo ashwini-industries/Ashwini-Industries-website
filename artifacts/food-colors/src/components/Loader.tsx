@@ -21,7 +21,7 @@ export default function Loader({ onComplete }: LoaderProps) {
         className="flex flex-col items-center gap-5"
       >
         <span className="font-serif italic font-semibold text-5xl md:text-6xl text-[#f5f0e8] tracking-wide">
-          ChromaIndia
+          Ashwini Industries
         </span>
         <motion.div
           className="h-[1px] bg-[#b8965a] origin-center"

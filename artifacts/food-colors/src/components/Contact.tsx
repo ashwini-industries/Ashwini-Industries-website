@@ -62,29 +62,34 @@ export default function Contact() {
             
             <div className="space-y-8 mt-auto">
               <div>
-                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">Corporate Office</h4>
+                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">Works & Office</h4>
                 <p className="font-sans font-light text-[#f5f0e8] text-sm leading-relaxed">
-                  Industrial Estate, Phase II<br/>Mumbai, Maharashtra, India 400001
+                  Ashwini Industries<br/>
+                  203+204/2, Near Jain Dairy<br/>
+                  Phase 2, GIDC, Naroda<br/>
+                  Ahmedabad — 382330, Gujarat
                 </p>
               </div>
               
               <div>
-                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">Direct Contact</h4>
+                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">Proprietor</h4>
                 <p className="font-sans font-light text-[#f5f0e8] text-sm leading-relaxed">
-                  exports@chromaindia.com<br/>+91 98765 43210
+                  Jagdish Agrawal<br/>
+                  +91 98980 45966
                 </p>
               </div>
 
               <div>
-                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">Instant Message</h4>
+                <h4 className="font-sans uppercase tracking-widest text-[#b8965a] text-xs mb-2">WhatsApp</h4>
                 <a 
-                  href="https://wa.me/919876543210" 
+                  href="https://wa.me/919898045966" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-sans font-light text-[#f5f0e8] text-sm hover:text-[#b8965a] transition-colors mt-1"
+                  data-testid="link-whatsapp"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  WhatsApp Us
+                  +91 98980 45966
                 </a>
               </div>
             </div>
@@ -163,11 +168,13 @@ export default function Contact() {
                             className={`w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none font-sans font-light py-3 transition-colors rounded-none appearance-none ${field.value ? 'text-[#f5f0e8]' : 'text-[#9e9990]/60'}`}
                           >
                             <option value="" disabled className="bg-[#2d3d2d] text-[#9e9990]/60">Product Interest</option>
-                            <option value="synthetic" className="bg-[#2d3d2d] text-[#f5f0e8]">Synthetic Food Colors</option>
-                            <option value="lake" className="bg-[#2d3d2d] text-[#f5f0e8]">Lake Colors</option>
-                            <option value="blended" className="bg-[#2d3d2d] text-[#f5f0e8]">Blended Colors</option>
-                            <option value="custom" className="bg-[#2d3d2d] text-[#f5f0e8]">Custom Formulations</option>
-                            <option value="industrial" className="bg-[#2d3d2d] text-[#f5f0e8]">Industrial Additives</option>
+                            <option value="tartrazine" className="bg-[#2d3d2d] text-[#f5f0e8]">Tartrazine</option>
+                            <option value="carmosine" className="bg-[#2d3d2d] text-[#f5f0e8]">Carmosine</option>
+                            <option value="amaranth" className="bg-[#2d3d2d] text-[#f5f0e8]">Amaranth</option>
+                            <option value="ponceau" className="bg-[#2d3d2d] text-[#f5f0e8]">Ponceau 4R</option>
+                            <option value="sunset" className="bg-[#2d3d2d] text-[#f5f0e8]">Sunset Yellow FCF</option>
+                            <option value="allura" className="bg-[#2d3d2d] text-[#f5f0e8]">Allura Red</option>
+                            <option value="brilliant" className="bg-[#2d3d2d] text-[#f5f0e8]">Brilliant Blue FCF</option>
                           </select>
                         </FormControl>
                         <FormMessage className="absolute -bottom-5" />

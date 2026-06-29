@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           
           <div className="flex flex-col gap-4">
-            <div className="font-serif italic font-semibold text-3xl text-[#f5f0e8]">ChromaIndia</div>
+            <div className="font-serif italic font-semibold text-3xl text-[#f5f0e8]">Ashwini Industries</div>
             <p className="font-sans font-light text-[#f5f0e8]/70 text-sm max-w-sm leading-relaxed">
-              Crafting Color with Precision & Legacy since 1998. India's premier manufacturer and global exporter of high-grade food colorants.
+              Crafting Color with Precision & Legacy since 1990. Ahmedabad's trusted manufacturer and exporter of high-grade synthetic food colorants.
             </p>
           </div>
 
@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-[#f5f0e8]/10 font-sans font-light text-[#9e9990]/60 text-xs">
-          <p>&copy; {new Date().getFullYear()} ChromaIndia. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ashwini Industries. All rights reserved.</p>
           <p>Made in India</p>
         </div>
       </div>

@@ -19,7 +19,7 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    document.title = "ChromaIndia — Crafting Color with Precision & Legacy";
+    document.title = "Ashwini Industries — Food Color Manufacturer & Exporter, Ahmedabad";
   }, []);
 
   return (

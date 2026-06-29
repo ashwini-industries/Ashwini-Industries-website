@@ -57,7 +57,7 @@ export default function Hero({ visible }: HeroProps) {
             transition={{ delay: 1.5, duration: 1 }}
             className="absolute bottom-12 left-6 md:left-12 font-sans uppercase tracking-widest text-[#9e9990]/60 text-xs"
           >
-            EST. 1998 MUMBAI
+            EST. 1990  ·  AHMEDABAD
           </motion.div>
 
           <motion.div

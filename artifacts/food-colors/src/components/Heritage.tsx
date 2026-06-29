@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 export default function Heritage() {
   const stats = [
-    { number: "25+", label: "Years of Precision" },
+    { number: "35+", label: "Years of Precision" },
     { number: "40+", label: "Countries Served" },
-    { number: "200+", label: "Product Variants" },
+    { number: "7", label: "Certified Colorants" },
     { number: "6", label: "Quality Standards" },
   ];
 
@@ -28,7 +28,7 @@ export default function Heritage() {
               "For over two decades, we have engineered color with the patience of craftsmen and the precision of scientists."
             </blockquote>
             <p className="font-sans font-light text-[#9e9990] text-sm">
-              — ChromaIndia, Est. 1998
+              — Ashwini Industries, Est. 1990
             </p>
           </motion.div>
 
