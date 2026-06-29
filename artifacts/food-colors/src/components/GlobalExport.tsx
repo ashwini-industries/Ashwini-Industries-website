@@ -2,15 +2,13 @@ import { motion } from "framer-motion";
 
 export default function GlobalExport() {
   const regions = [
-    "Europe", "Middle East", "Southeast Asia", "North America", "Africa", "CIS Countries"
+    "Europe", "Middle East", "Southeast Asia", "CIS Countries"
   ];
 
   const dots = [
     { cx: 490, cy: 100, delay: 0 },
     { cx: 560, cy: 165, delay: 0.5 },
     { cx: 700, cy: 200, delay: 1 },
-    { cx: 175, cy: 150, delay: 1.5 },
-    { cx: 490, cy: 270, delay: 2 },
   ];
 
   return (

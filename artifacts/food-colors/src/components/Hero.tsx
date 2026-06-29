@@ -43,7 +43,7 @@ export default function Hero({ visible }: HeroProps) {
             </motion.h1>
             
             <motion.p variants={itemVariants} className="font-sans font-light text-[#9e9990] text-sm mt-6 max-w-md leading-relaxed">
-              India's premier food color manufacturer, trusted by 40+ nations.
+              India's premier food color manufacturer, trusted by 10+ nations.
             </motion.p>
           </motion.div>
         )}
