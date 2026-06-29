@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function Heritage() {
   const stats = [
     { number: "35+", label: "Years of Precision" },
-    { number: "40+", label: "Countries Served" },
+    { number: "10+", label: "Countries Served" },
     { number: "7", label: "Certified Colorants" },
     { number: "6", label: "Quality Standards" },
   ];

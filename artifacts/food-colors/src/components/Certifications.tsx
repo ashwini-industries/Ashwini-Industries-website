@@ -2,11 +2,10 @@ import { motion } from "framer-motion";
 
 export default function Certifications() {
   const certs = [
-    { title: "ISO 9001:2015", note: "Quality Management Systems" },
-    { title: "FSSAI Certified", note: "Food Safety Standards Authority" },
-    { title: "GMP Compliant", note: "Good Manufacturing Practices" },
-    { title: "Export Compliance", note: "International Trade Ready" },
-    { title: "Lab Tested & Certified", note: "Rigorous In-House Testing" },
+    { title: "ISO 22000:2018", note: "Food Safety Management Systems" },
+    { title: "FSSAI Certified", note: "Food Safety Standards Authority of India" },
+    { title: "Halal Certified", note: "Compliant with Global Halal Standards" },
+    { title: "IEC Registered", note: "Importer Exporter Code — DGFT, India" },
   ];
 
   const container = {
