@@ -50,7 +50,7 @@ export default function Products() {
       ecNumber: "220-036-2",
       casNumber: "2611-82-7",
       fdcNumber: "—",
-      concentration: "≥ 85%",
+      concentration: "≥ 82%",
     },
     {
       id: "05",
