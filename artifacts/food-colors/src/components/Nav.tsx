@@ -35,7 +35,7 @@ export default function Nav() {
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <a
             href="/"
-            className="font-sans font-extrabold text-lg text-[#1f2b21] tracking-tight"
+            className="font-sans font-extrabold text-lg text-[#1f2b21] tracking-tight -ml-2 md:-ml-3"
             data-testid="nav-logo"
           >
             ASHWINI INDUSTRIES
