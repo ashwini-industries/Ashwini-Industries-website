@@ -7,7 +7,7 @@ interface LoaderProps {
 export default function Loader({ onComplete }: LoaderProps) {
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#2d3d2d]"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#1f2b21]"
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -20,8 +20,8 @@ export default function Loader({ onComplete }: LoaderProps) {
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
         className="flex flex-col items-center gap-5"
       >
-        <span className="font-serif italic font-semibold text-5xl md:text-6xl text-[#f5f0e8] tracking-wide">
-          Ashwini Industries
+        <span className="font-sans font-extrabold text-3xl md:text-4xl text-[#f5f0e8] tracking-tight">
+          ASHWINI INDUSTRIES
         </span>
         <motion.div
           className="h-[1px] bg-[#b8965a] origin-center"

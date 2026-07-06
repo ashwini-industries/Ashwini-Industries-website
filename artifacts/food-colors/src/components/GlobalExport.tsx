@@ -23,7 +23,10 @@ export default function GlobalExport() {
           transition={{ duration: 0.8 }}
           className="text-center mb-24"
         >
-          <h2 className="font-serif italic font-bold text-5xl md:text-6xl text-[#f5f0e8]">
+          <div className="font-sans uppercase tracking-[0.25em] text-[#b8965a] text-xs font-semibold mb-4">
+            EXPORT NETWORK
+          </div>
+          <h2 className="font-sans font-extrabold text-4xl md:text-5xl text-[#f5f0e8] tracking-tight">
             A Global Reach
           </h2>
         </motion.div>

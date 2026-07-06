@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           
           <div className="flex flex-col gap-4">
-            <div className="font-serif italic font-semibold text-3xl text-[#f5f0e8]">Ashwini Industries</div>
+            <div className="font-sans font-extrabold text-2xl text-[#f5f0e8] tracking-tight">ASHWINI INDUSTRIES</div>
             <p className="font-sans font-light text-[#f5f0e8]/70 text-sm max-w-sm leading-relaxed">
               Crafting Color with Precision & Legacy since 1990. Ahmedabad's trusted manufacturer and exporter of high-grade synthetic food colorants.
             </p>

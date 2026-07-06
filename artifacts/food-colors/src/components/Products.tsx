@@ -1,117 +1,177 @@
 import { motion } from "framer-motion";
-import { Beaker, Layers, Blend, Settings, Factory } from "lucide-react";
+import { Download } from "lucide-react";
+import { toast } from "sonner";
 
 export default function Products() {
   const products = [
     {
       id: "01",
-      title: "Tartrazine",
-      description: "E102 — a bright lemon-yellow azo dye widely used in beverages, confectionery, and processed foods.",
-      icon: <Beaker className="w-8 h-8" strokeWidth={1} />,
+      name: "Tartrazine",
+      eNumber: "E102",
+      swatch: "#F3E500",
+      ciRef: "Food Yellow 4",
+      ciNumber: "19140",
+      ecNumber: "217-699-5",
+      casNumber: "1934-21-0",
+      fdcNumber: "Yellow No. 5",
+      concentration: "≥ 85%",
     },
     {
       id: "02",
-      title: "Carmosine",
-      description: "E122 — a deep red azo dye valued for its strong tinctorial strength in jams, jellies, and dairy products.",
-      icon: <Layers className="w-8 h-8" strokeWidth={1} />,
+      name: "Carmoisine",
+      eNumber: "E122",
+      swatch: "#92003B",
+      ciRef: "Food Red 3",
+      ciNumber: "14720",
+      ecNumber: "222-657-4",
+      casNumber: "3567-69-9",
+      fdcNumber: "—",
+      concentration: "≥ 85%",
     },
     {
       id: "03",
-      title: "Amaranth",
-      description: "E123 — a dark red-purple dye delivering rich, stable color in alcoholic beverages and food coatings.",
-      icon: <Blend className="w-8 h-8" strokeWidth={1} />,
+      name: "Amaranth",
+      eNumber: "E123",
+      swatch: "#6E0D25",
+      ciRef: "Food Red 9",
+      ciNumber: "16185",
+      ecNumber: "213-022-2",
+      casNumber: "915-67-3",
+      fdcNumber: "—",
+      concentration: "≥ 85%",
     },
     {
       id: "04",
-      title: "Ponceau 4R",
-      description: "E124 — a strawberry-red colorant prized for heat stability in baked goods, sauces, and canned products.",
-      icon: <Settings className="w-8 h-8" strokeWidth={1} />,
+      name: "Ponceau 4R",
+      eNumber: "E124",
+      swatch: "#D0004B",
+      ciRef: "Food Red 7",
+      ciNumber: "16255",
+      ecNumber: "220-036-2",
+      casNumber: "2611-82-7",
+      fdcNumber: "—",
+      concentration: "≥ 85%",
     },
     {
       id: "05",
-      title: "Sunset Yellow FCF",
-      description: "E110 — a warm orange-yellow dye offering excellent stability in beverages, snacks, and confectionery.",
-      icon: <Factory className="w-8 h-8" strokeWidth={1} />,
+      name: "Sunset Yellow FCF",
+      eNumber: "E110",
+      swatch: "#FF9933",
+      ciRef: "Food Yellow 3",
+      ciNumber: "15985",
+      ecNumber: "220-491-7",
+      casNumber: "2783-94-0",
+      fdcNumber: "Yellow No. 6",
+      concentration: "≥ 85%",
     },
     {
       id: "06",
-      title: "Allura Red",
-      description: "E129 — a bright red colorant with outstanding light and heat stability across a wide range of food applications.",
-      icon: <Beaker className="w-8 h-8" strokeWidth={1} />,
+      name: "Allura Red",
+      eNumber: "E129",
+      swatch: "#E4002B",
+      ciRef: "Food Red 17",
+      ciNumber: "16035",
+      ecNumber: "247-368-0",
+      casNumber: "25956-17-6",
+      fdcNumber: "Red No. 40",
+      concentration: "≥ 85%",
     },
     {
       id: "07",
-      title: "Brilliant Blue FCF",
-      description: "E133 — a vivid blue dye used in confectionery, dairy, and beverages, stable across varying pH levels.",
-      icon: <Layers className="w-8 h-8" strokeWidth={1} />,
+      name: "Brilliant Blue FCF",
+      eNumber: "E133",
+      swatch: "#1465B7",
+      ciRef: "Food Blue 2",
+      ciNumber: "42090",
+      ecNumber: "223-339-8",
+      casNumber: "3844-45-9",
+      fdcNumber: "Blue No. 1",
+      concentration: "≥ 85%",
     },
   ];
 
+  function handleDownloadCatalogue() {
+    toast.success("Catalogue Request Sent", {
+      description: "Our export team will email the full product catalogue shortly.",
+    });
+  }
+
   return (
-    <section id="products" className="pt-32 pb-48 bg-[#f5f0e8]">
+    <section id="products" className="pt-24 pb-28 md:pt-32 md:pb-36 bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
         >
-          <div className="font-sans uppercase tracking-[0.3em] text-[#9e9990] text-xs mb-4">
-            PRODUCTS
+          <div>
+            <div className="font-sans uppercase tracking-[0.25em] text-[#9e9990] text-xs font-semibold mb-3">
+              PRODUCT RANGE
+            </div>
+            <h2 className="font-sans font-extrabold text-3xl md:text-4xl text-[#1f2b21] tracking-tight">
+              Certified Synthetic Food Colours
+            </h2>
           </div>
-          <h2 className="font-serif italic font-semibold text-5xl text-[#3a3a35]">
-            Our Range
-          </h2>
+          <button
+            onClick={handleDownloadCatalogue}
+            data-testid="button-download-catalogue"
+            className="flex items-center gap-2 font-sans font-semibold uppercase tracking-widest text-xs text-white bg-[#2d3d2d] px-6 py-3.5 hover:bg-[#1f2b21] transition-colors shrink-0 w-fit"
+          >
+            <Download className="w-4 h-4" />
+            Download Full Catalogue (PDF)
+          </button>
         </motion.div>
 
-        <div className="flex flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {products.map((product, i) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
+              className="border border-[#e8dcc8] bg-white hover:border-[#b8965a] transition-colors"
+              data-testid={`card-product-${product.id}`}
             >
-              <motion.div
-                whileHover="hover"
-                initial="initial"
-                className="flex flex-col md:flex-row items-start md:items-center py-12 px-6 gap-8 relative overflow-hidden transition-colors duration-500 hover:bg-[#e8dcc8]/30"
-              >
-                {/* Number */}
-                <motion.div
-                  variants={{
-                    initial: { color: "#e8dcc8", opacity: 0.5 },
-                    hover: { color: "rgba(184, 150, 90, 0.3)", opacity: 1 },
-                  }}
-                  className="font-serif font-light text-8xl md:w-32 shrink-0 leading-none"
-                >
-                  {product.id}
-                </motion.div>
-
-                {/* Content */}
-                <div className="flex-grow flex flex-col gap-2">
-                  <motion.h3
-                    variants={{
-                      initial: { color: "#3a3a35" },
-                      hover: { color: "#b8965a" },
-                    }}
-                    className="font-serif font-semibold text-2xl"
-                  >
-                    {product.title}
-                  </motion.h3>
-                  <p className="font-sans font-light text-[#9e9990] text-sm max-w-xl leading-relaxed">
-                    {product.description}
-                  </p>
+              <div className="flex gap-5 p-6">
+                <div className="shrink-0 flex flex-col items-center gap-2">
+                  <div
+                    className="w-16 h-16 rounded-sm border border-black/10"
+                    style={{ backgroundColor: product.swatch }}
+                    aria-label={`${product.name} colour swatch`}
+                  />
+                  <span className="font-sans font-bold text-[10px] text-[#9e9990] tracking-wider">
+                    {product.eNumber}
+                  </span>
                 </div>
 
-                {/* Icon */}
-                <div className="text-[#b8965a] shrink-0 md:pl-8">
-                  {product.icon}
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-sans font-bold text-lg text-[#1f2b21] mb-3">
+                    {product.name}
+                  </h3>
+                  <dl className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs">
+                    <dt className="font-sans font-medium text-[#9e9990]">CI Reference (Food)</dt>
+                    <dd className="font-sans font-semibold text-[#3a3a35] text-right">{product.ciRef}</dd>
+
+                    <dt className="font-sans font-medium text-[#9e9990]">CI Number</dt>
+                    <dd className="font-sans font-semibold text-[#3a3a35] text-right tabular-nums">{product.ciNumber}</dd>
+
+                    <dt className="font-sans font-medium text-[#9e9990]">EC Number</dt>
+                    <dd className="font-sans font-semibold text-[#3a3a35] text-right tabular-nums">{product.ecNumber}</dd>
+
+                    <dt className="font-sans font-medium text-[#9e9990]">CAS Number</dt>
+                    <dd className="font-sans font-semibold text-[#3a3a35] text-right tabular-nums">{product.casNumber}</dd>
+
+                    <dt className="font-sans font-medium text-[#9e9990]">FD&C Number</dt>
+                    <dd className="font-sans font-semibold text-[#3a3a35] text-right">{product.fdcNumber}</dd>
+
+                    <dt className="font-sans font-medium text-[#9e9990]">Total Dye Content</dt>
+                    <dd className="font-sans font-semibold text-[#3a3a35] text-right">{product.concentration}</dd>
+                  </dl>
                 </div>
-              </motion.div>
-              <hr className="border-t border-[#e8dcc8] w-full" />
+              </div>
             </motion.div>
           ))}
         </div>

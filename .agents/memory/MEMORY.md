@@ -1,0 +1,1 @@
+- [Framer Motion variant typing](framer-motion-variants.md) — `ease` in a Variants transition object needs a numeric easing array/tuple cast, not a string like "easeOut", or tsc fails.

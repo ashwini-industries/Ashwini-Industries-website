@@ -1,0 +1,59 @@
+I need to redesign my food color manufacturing website (Ashwini Industries) to feel 
+more like a professional, trustworthy B2B industrial supplier for global buyers, 
+rather than a lifestyle/boutique brand. Please make the following changes:
+
+1. TYPOGRAPHY & HERO SECTION
+- Replace the cursive/script font used for headings (e.g. "Crafting Color") with a 
+  clean, modern sans-serif font (Inter, IBM Plex Sans, or Söhne). Keep a simple serif 
+  only for small accent text if needed, not for main headings.
+- In the hero section, add a bold sub-line under the main headline showing a key trust 
+  stat, e.g. "35+ years manufacturing certified food colours, exported to 10+ countries."
+- Keep the dark green as an accent/brand color, but reduce it as a full-bleed background; 
+  use more white/light space so the page feels clean and technical rather than moody.
+
+2. STATS SECTION
+- Make sure every stat (35+, 10+, 7, etc.) has a clear, bold caption underneath in 
+  small caps or high-contrast text, so it's legible at a glance.
+- Add attribution to the pull-quote ("For over three decades...") — include a name 
+  and title, e.g. "— Jagdish Agrawal, Founder."
+
+3. PRODUCTS PAGE — REBUILD PRODUCT CARDS
+For each product (Tartrazine, Sunset Yellow FCF, Carmoisine, Ponceau 4R, Amaranth, 
+Allura Red, Brilliant Blue FCF, Chocolate Brown HT, Quinoline Yellow WS, Indigo Carmine, 
+Erythrosine, Patent Blue V, Red 2G, Black PN), display on each card:
+- An actual color swatch matching the real dye shade
+- Product name
+- Colour Index Reference (Food)
+- Colour Index Number
+- E.C. Number
+- CAS Number
+- FD&C Number (or "-" if not applicable)
+- Total Dye Concentration (%)
+Lay this out as a clean grid or list — swatch on the left, name + spec grid on the right, 
+similar to a professional technical data sheet.
+Add a "Download Full Product Catalogue (PDF)" button on this page.
+
+4. FACTORY / INFRASTRUCTURE PAGE
+- Replace placeholder sections (Manufacturing Plant, Packaging Unit, etc.) with real 
+  photos of the plant, machinery, packaging line, and QC/testing lab if available. 
+  If photos aren't ready yet, add clearly labeled placeholder image blocks so it's 
+  obvious where real photos will go, rather than leaving it looking empty/unfinished.
+
+5. CERTIFICATIONS SECTION
+- Display actual certificate badges/logos (FSSAI, ISO, HALAL, Kosher, IEC, or whichever 
+  are officially held) instead of plain text labels.
+- Make each certificate clickable/downloadable as a PDF if scanned copies are available.
+
+6. CONTACT / EXPORT INQUIRY PAGE
+- Keep the embedded Google Map.
+- Replace the plain contact/message box with a structured export inquiry form with 
+  fields: Name, Company, Country, Product(s) of Interest (dropdown/multi-select), 
+  Quantity Required, Message.
+- Make phone, WhatsApp, and email all visible and clickable near the top of this page.
+
+7. GENERAL
+- Ensure consistent spacing, font sizes, and color usage across all pages (currently 
+  each page feels visually distinct/inconsistent).
+- Optimize for both desktop and mobile responsiveness.
+- Use a clean, industrial/technical visual tone throughout — this is a B2B chemical 
+  manufacturing export site, not a lifestyle or artisanal consumer brand.

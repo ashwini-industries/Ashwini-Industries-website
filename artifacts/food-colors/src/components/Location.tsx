@@ -31,7 +31,7 @@ export default function Location() {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="font-serif italic font-semibold text-5xl md:text-6xl text-[#3a3a35]"
+                className="font-sans font-extrabold text-4xl md:text-5xl text-[#1f2b21] tracking-tight"
               >
                 Visit Our Facility
               </motion.h2>
@@ -93,7 +93,7 @@ export default function Location() {
               <p className="font-sans uppercase tracking-[0.2em] text-[#b8965a] text-[10px] mb-1">
                 Est. 1990
               </p>
-              <h3 className="font-serif font-semibold text-xl text-[#3a3a35] mb-1 leading-tight">
+              <h3 className="font-sans font-extrabold text-xl text-[#3a3a35] mb-1 leading-tight">
                 Ashwini Industries
               </h3>
               <p className="font-sans font-light text-[#9e9990] text-xs mb-5 leading-relaxed">

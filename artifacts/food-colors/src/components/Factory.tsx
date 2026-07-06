@@ -1,96 +1,76 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
+import { ImageIcon } from "lucide-react";
 
 export default function Factory() {
-  const outerRef = useRef<HTMLDivElement>(null);
-  const stripRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const isDesktop = window.innerWidth >= 768;
-    if (!isDesktop) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const outer = outerRef.current;
-    const strip = stripRef.current;
-    
-    if (outer && strip) {
-      const ctx = gsap.context(() => {
-        gsap.to(strip, {
-          xPercent: -75,
-          ease: "none",
-          scrollTrigger: {
-            trigger: outer,
-            pin: true,
-            scrub: 0.15,
-            end: () => `+=${outer.offsetWidth * 3}`,
-          },
-        });
-      }, outer);
-      
-      return () => ctx.revert();
-    }
-  }, []);
-
   const panels = [
     {
       num: "01",
-      bg: "#c8b89a",
       title: "Manufacturing Plant",
       caption: "State-of-the-art facilities engineered for scale and precision.",
     },
     {
       num: "02",
-      bg: "#9e9990",
-      title: "Quality Testing Lab",
+      title: "Quality Control Laboratory",
       caption: "Rigorous analytical testing ensuring uncompromised purity.",
     },
     {
       num: "03",
-      bg: "#8a9e8a",
-      title: "Packaging Unit",
-      caption: "Automated filling lines maintaining sterile environments.",
+      title: "Packaging Line",
+      caption: "Automated filling lines maintaining sterile, contamination-free handling.",
     },
     {
       num: "04",
-      bg: "#6b7c5a",
-      title: "Automated Machinery",
-      caption: "Advanced robotics delivering consistency in every batch.",
+      title: "Machinery & Equipment",
+      caption: "Advanced processing equipment delivering consistency in every batch.",
     },
   ];
 
   return (
-    <section id="factory" className="bg-[#e8dcc8] relative overflow-hidden">
-      <div className="absolute top-16 left-6 md:left-12 z-10 pointer-events-none">
-        <div className="font-sans uppercase tracking-widest text-[#3a3a35]/60 text-xs mb-4">
-          THE FACILITY
-        </div>
-        <h2 className="font-serif italic font-semibold text-5xl text-[#3a3a35]">
-          World-Class Infrastructure
-        </h2>
-      </div>
-
-      <div ref={outerRef} className="md:h-[100vh] w-full flex flex-col md:block">
-        <div ref={stripRef} className="flex flex-col md:flex-row h-full w-full md:w-[400vw]">
-          {panels.map((panel, i) => (
-            <div
-              key={i}
-              className="w-full md:w-[100vw] h-[100vh] inline-flex flex-col justify-end p-8 md:p-16 relative"
-              style={{ backgroundColor: panel.bg }}
-            >
-              <div className="absolute top-16 right-8 md:right-16 font-serif font-light text-[80px] md:text-[120px] text-white/10 leading-none pointer-events-none">
-                {panel.num}
-              </div>
-              <div className="max-w-xl">
-                <h3 className="font-serif italic font-normal text-3xl md:text-4xl text-[#f5f0e8] mb-4">
-                  {panel.title}
-                </h3>
-                <p className="font-sans font-light text-sm text-[#3a3a35]/80 max-w-sm leading-relaxed">
-                  {panel.caption}
-                </p>
-              </div>
+    <section id="factory" className="py-24 md:py-32 bg-[#f5f0e8]">
+      <div className="container mx-auto px-6 md:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+        >
+          <div>
+            <div className="font-sans uppercase tracking-[0.25em] text-[#9e9990] text-xs font-semibold mb-3">
+              THE FACILITY
             </div>
+            <h2 className="font-sans font-extrabold text-3xl md:text-4xl text-[#1f2b21] tracking-tight">
+              World-Class Infrastructure
+            </h2>
+          </div>
+          <p className="font-sans text-[#3a3a35]/70 text-sm max-w-md leading-relaxed">
+            Our GIDC Naroda facility runs high-capacity production alongside dedicated
+            quality control, engineered for consistent, export-grade output.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {panels.map((panel, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="border-2 border-dashed border-[#c9b896] bg-white/60 aspect-[4/3] flex flex-col items-center justify-center gap-3 p-8 text-center"
+              data-testid={`placeholder-facility-${i}`}
+            >
+              <ImageIcon className="w-8 h-8 text-[#b8965a]/50" strokeWidth={1.25} />
+              <h3 className="font-sans font-bold text-base text-[#1f2b21]">
+                {panel.title}
+              </h3>
+              <p className="font-sans text-xs text-[#3a3a35]/60 max-w-[220px] leading-relaxed">
+                {panel.caption}
+              </p>
+              <span className="font-sans uppercase tracking-widest text-[10px] text-[#9e9990] mt-1">
+                Photo Coming Soon
+              </span>
+            </motion.div>
           ))}
         </div>
       </div>

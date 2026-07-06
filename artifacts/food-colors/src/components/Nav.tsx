@@ -19,6 +19,7 @@ export default function Nav() {
     { label: "Products", href: "#products" },
     { label: "Factory", href: "#factory" },
     { label: "Export", href: "#export" },
+    { label: "Certifications", href: "#certifications" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -27,24 +28,24 @@ export default function Nav() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "backdrop-blur-sm bg-[#f5f0e8]/90 py-4 shadow-sm"
+            ? "backdrop-blur-sm bg-[#f5f0e8]/95 py-4 shadow-sm"
             : "bg-transparent py-6"
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <a
             href="/"
-            className="font-serif italic font-semibold text-2xl text-[#3a3a35]"
+            className="font-sans font-extrabold text-lg text-[#1f2b21] tracking-tight"
             data-testid="nav-logo"
           >
-            Ashwini Industries
+            ASHWINI INDUSTRIES
           </a>
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="font-sans font-normal uppercase text-xs tracking-widest text-[#3a3a35] relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-[#b8965a] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
+                className="font-sans font-medium uppercase text-xs tracking-widest text-[#3a3a35] relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-[#b8965a] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
                 data-testid={`nav-link-${link.label.toLowerCase()}`}
               >
                 {link.label}
@@ -64,7 +65,7 @@ export default function Nav() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-50 bg-[#2d3d2d] flex flex-col justify-center items-center"
+            className="fixed inset-0 z-50 bg-[#1f2b21] flex flex-col justify-center items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -82,11 +83,11 @@ export default function Nav() {
                 <motion.a
                   key={link.label}
                   href={link.href}
-                  className="font-serif text-4xl text-[#f5f0e8] hover:text-[#b8965a] transition-colors"
+                  className="font-sans font-bold text-3xl text-[#f5f0e8] hover:text-[#b8965a] transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
                 >
                   {link.label}
                 </motion.a>
