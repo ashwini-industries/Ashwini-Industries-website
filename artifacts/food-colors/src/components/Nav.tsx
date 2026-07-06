@@ -45,7 +45,7 @@ export default function Nav() {
               <a
                 key={link.label}
                 href={link.href}
-                className="font-sans font-medium uppercase text-xs tracking-widest relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-[#b8965a] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left text-[color:var(--color-white)] border-t-[color:var(--color-black)] border-r-[color:var(--color-black)] border-b-[color:var(--color-black)] border-l-[color:var(--color-black)] border-t-[1px] border-r-[1px] border-b-[1px] border-l-[1px]"
+                className="font-sans font-medium uppercase text-xs tracking-widest relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-[#b8965a] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left text-[color:var(--color-white)] border-t-[color:var(--color-black)] border-r-[color:var(--color-black)] border-b-[color:var(--color-black)] border-l-[color:var(--color-black)] border-t-[0px] border-r-[0px] border-b-[0px] border-l-[0px]"
                 data-testid={`nav-link-${link.label.toLowerCase()}`}
               >
                 {link.label}
