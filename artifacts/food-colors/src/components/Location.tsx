@@ -64,7 +64,7 @@ export default function Location() {
             }}
           >
             <iframe
-              src="https://maps.google.com/maps?q=Phase+2+GIDC+Naroda+Ahmedabad+Gujarat+382330&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Ashwini+Industries,23.0954783,72.6739307&t=&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="520"
               style={{ border: 0, display: "block" }}
@@ -119,7 +119,7 @@ export default function Location() {
 
               <div className="flex gap-3 pt-4 border-t border-[#e8dcc8]">
                 <a
-                  href="https://maps.google.com/?q=Phase+2+GIDC+Naroda+Ahmedabad+Gujarat+382330"
+                  href="https://maps.app.goo.gl/cHswsQWsWknyP3Pp9"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid="link-get-directions"
