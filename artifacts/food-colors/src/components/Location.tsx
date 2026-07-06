@@ -64,7 +64,7 @@ export default function Location() {
             }}
           >
             <iframe
-              src="https://maps.google.com/maps?q=Ashwini+Industries,23.0954783,72.6739307&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=23.0954783,72.6739307&t=&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="520"
               style={{ border: 0, display: "block" }}
