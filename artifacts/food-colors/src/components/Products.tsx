@@ -91,8 +91,8 @@ export default function Products() {
   ];
 
   function handleDownloadCatalogue() {
-    toast.success("Catalogue Request Sent", {
-      description: "Our export team will email the full product catalogue shortly.",
+    toast.success("Downloading Catalogue", {
+      description: "The full product catalogue PDF is downloading now.",
     });
   }
 
@@ -114,14 +114,16 @@ export default function Products() {
               Certified Synthetic Food Colours
             </h2>
           </div>
-          <button
+          <a
+            href={`${import.meta.env.BASE_URL}ashwini-food-colour-catalogue.pdf`}
+            download="Ashwini-Industries-Food-Colour-Catalogue.pdf"
             onClick={handleDownloadCatalogue}
             data-testid="button-download-catalogue"
             className="flex items-center gap-2 font-sans font-semibold uppercase tracking-widest text-xs text-white bg-[#2d3d2d] px-6 py-3.5 hover:bg-[#1f2b21] transition-colors shrink-0 w-fit"
           >
             <Download className="w-4 h-4" />
             Download Full Catalogue (PDF)
-          </button>
+          </a>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
