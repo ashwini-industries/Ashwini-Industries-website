@@ -45,7 +45,7 @@ export default function Nav() {
               <a
                 key={link.label}
                 href={link.href}
-                className="font-sans font-medium uppercase text-xs tracking-widest text-[#3a3a35] relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-[#b8965a] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
+                className="font-sans font-medium uppercase text-xs tracking-widest text-[#3a3a35] relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-[#b8965a] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left border-t-[color:var(--color-white)] border-r-[color:var(--color-white)] border-b-[color:var(--color-white)] border-l-[color:var(--color-white)]"
                 data-testid={`nav-link-${link.label.toLowerCase()}`}
               >
                 {link.label}
@@ -61,7 +61,6 @@ export default function Nav() {
           </button>
         </div>
       </header>
-
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
