@@ -64,7 +64,7 @@ export default function Factory() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="relative aspect-[4/3] overflow-hidden"
+                className="relative aspect-[4/3] overflow-hidden group"
                 data-testid={`facility-photo-${i}`}
               >
                 <img
@@ -72,7 +72,7 @@ export default function Factory() {
                   alt={panel.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 py-5">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 py-5 transition-opacity duration-300 group-hover:opacity-0">
                   <h3 className="font-sans font-bold text-base text-white">
                     {panel.title}
                   </h3>
