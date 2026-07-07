@@ -206,7 +206,7 @@ export default function Contact() {
                       <FormItem className="mb-8 relative">
                         <FormControl>
                           <input
-                            placeholder="Email *"
+                            placeholder="Email"
                             type="email"
                             {...field}
                             className="w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none text-[#f5f0e8] placeholder:text-[#9e9990]/60 font-sans py-3 transition-colors rounded-none"
