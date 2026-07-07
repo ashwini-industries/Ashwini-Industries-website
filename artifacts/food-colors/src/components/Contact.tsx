@@ -50,47 +50,23 @@ export default function Contact() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
-    if (!accessKey) {
-      toast.error("Email service not configured.");
-      return;
-    }
-
-    const payload = {
-      access_key: accessKey,
-      subject: `Export Inquiry from ${values.name} — ${values.company} (${values.country})`,
-      from_name: values.name,
-      replyto: values.email,
-      name: values.name,
-      company: values.company,
-      email: values.email,
-      phone: values.phone || "—",
-      country: values.country,
-      quantity: values.quantity || "—",
-      products: values.products.join(", "),
-      message: values.message || "—",
-    };
-
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/inquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       });
-      const data = await res.json();
-      if (data.success) {
+      if (res.ok) {
         toast.success("Inquiry Sent!", {
           description: "Our export team will be in touch within 24 hours.",
         });
         form.reset();
       } else {
-        toast.error("Submission failed", {
-          description: data.message ?? "Unknown error from email service.",
-        });
+        throw new Error("server error");
       }
-    } catch (err) {
-      toast.error("Network error", {
-        description: err instanceof Error ? err.message : "Could not reach email service.",
+    } catch {
+      toast.error("Something went wrong", {
+        description: "Please email us directly at jagdish2319@gmail.com",
       });
     }
   }

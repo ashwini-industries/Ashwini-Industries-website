@@ -1,5 +1,4 @@
 import { Router } from "express";
-import nodemailer from "nodemailer";
 import { z } from "zod";
 import { logger } from "../lib/logger";
 
@@ -23,49 +22,48 @@ router.post("/inquiry", async (req, res) => {
     return;
   }
 
-  const { name, company, email, phone, country, quantity, products, message } = parsed.data;
+  const { name, company, email, phone, country, quantity, products, message } =
+    parsed.data;
 
-  const gmailUser = process.env["GMAIL_USER"];
-  const gmailPass = process.env["GMAIL_APP_PASSWORD"];
-
-  if (!gmailUser || !gmailPass) {
-    req.log.error("GMAIL_USER or GMAIL_APP_PASSWORD not configured");
+  const accessKey = process.env["VITE_WEB3FORMS_KEY"];
+  if (!accessKey) {
+    req.log.error("VITE_WEB3FORMS_KEY not configured");
     res.status(500).json({ error: "Email service not configured" });
     return;
   }
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: { user: gmailUser, pass: gmailPass },
-  });
-
-  const subject = `New Export Inquiry from ${name} — ${company} (${country})`;
-  const text = [
-    `Name:     ${name}`,
-    `Company:  ${company}`,
-    `Email:    ${email}`,
-    phone ? `Phone:    ${phone}` : null,
-    `Country:  ${country}`,
-    quantity ? `Quantity: ${quantity}` : null,
-    `Products: ${products.join(", ")}`,
-    message ? `\nMessage:\n${message}` : null,
-  ]
-    .filter(Boolean)
-    .join("\n");
+  const payload = {
+    access_key: accessKey,
+    subject: `Export Inquiry from ${name} — ${company} (${country})`,
+    from_name: name,
+    replyto: email,
+    name,
+    company,
+    email,
+    phone: phone || "—",
+    country,
+    quantity: quantity || "—",
+    products: products.join(", "),
+    message: message || "—",
+  };
 
   try {
-    await transporter.sendMail({
-      from: `"Ashwini Industries Website" <${gmailUser}>`,
-      to: "jagdish2319@gmail.com",
-      replyTo: email,
-      subject,
-      text,
+    const w3res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
     });
+    const data = (await w3res.json()) as { success: boolean; message?: string };
 
-    req.log.info({ name, company, country }, "Inquiry email sent");
-    res.json({ success: true });
+    if (data.success) {
+      req.log.info({ name, company, country }, "Inquiry email sent");
+      res.json({ success: true });
+    } else {
+      req.log.error({ message: data.message }, "Web3Forms rejected submission");
+      res.status(502).json({ error: data.message ?? "Email service error" });
+    }
   } catch (err) {
-    logger.error({ err }, "Failed to send inquiry email");
+    logger.error({ err }, "Failed to reach Web3Forms");
     res.status(500).json({ error: "Failed to send email" });
   }
 });
