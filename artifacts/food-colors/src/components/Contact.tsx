@@ -49,11 +49,23 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    toast.success("Inquiry Received", {
-      description: "Our export team will be in touch within 24 hours.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL}api/inquiry`.replace(/\/\//g, "/"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error("Server error");
+      toast.success("Inquiry Received", {
+        description: "Our export team will be in touch within 24 hours.",
+      });
+      form.reset();
+    } catch {
+      toast.error("Something went wrong", {
+        description: "Please email us directly at jagdish2319@gmail.com",
+      });
+    }
   }
 
   return (
