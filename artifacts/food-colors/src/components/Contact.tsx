@@ -84,11 +84,13 @@ export default function Contact() {
         });
         form.reset();
       } else {
-        throw new Error(data.message);
+        toast.error("Submission failed", {
+          description: data.message ?? "Unknown error from email service.",
+        });
       }
-    } catch {
-      toast.error("Something went wrong", {
-        description: "Please email us directly at jagdish2319@gmail.com",
+    } catch (err) {
+      toast.error("Network error", {
+        description: err instanceof Error ? err.message : "Could not reach email service.",
       });
     }
   }
