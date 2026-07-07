@@ -49,28 +49,48 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const subject = `Export Inquiry from ${values.name} — ${values.company} (${values.country})`;
-    const lines = [
-      `Name: ${values.name}`,
-      `Company: ${values.company}`,
-      `Email: ${values.email}`,
-      values.phone ? `Phone / WhatsApp: ${values.phone}` : null,
-      `Country: ${values.country}`,
-      values.quantity ? `Quantity Required: ${values.quantity}` : null,
-      `Products Interested In: ${values.products.join(", ")}`,
-      values.message ? `\nMessage:\n${values.message}` : null,
-    ]
-      .filter(Boolean)
-      .join("\n");
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+    if (!accessKey) {
+      toast.error("Email service not configured.");
+      return;
+    }
 
-    const mailto = `mailto:jagdish2319@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
-    window.open(mailto, "_blank");
+    const payload = {
+      access_key: accessKey,
+      subject: `Export Inquiry from ${values.name} — ${values.company} (${values.country})`,
+      from_name: values.name,
+      replyto: values.email,
+      name: values.name,
+      company: values.company,
+      email: values.email,
+      phone: values.phone || "—",
+      country: values.country,
+      quantity: values.quantity || "—",
+      products: values.products.join(", "),
+      message: values.message || "—",
+    };
 
-    toast.success("Opening your email client…", {
-      description: "Your inquiry is pre-filled — just hit Send.",
-    });
-    form.reset();
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success("Inquiry Sent!", {
+          description: "Our export team will be in touch within 24 hours.",
+        });
+        form.reset();
+      } else {
+        throw new Error(data.message);
+      }
+    } catch {
+      toast.error("Something went wrong", {
+        description: "Please email us directly at jagdish2319@gmail.com",
+      });
+    }
   }
 
   return (
