@@ -30,3 +30,8 @@ externalPort = 8081
 [[ports]]
 localPort = 22440
 externalPort = 3000
+
+[userenv]
+
+[userenv.shared]
+VITE_WEB3FORMS_KEY = "6d25f607-ac8f-465a-b626-d8310d67c630"
