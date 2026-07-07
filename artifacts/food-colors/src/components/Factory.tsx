@@ -20,7 +20,7 @@ const panels = [
     num: "03",
     title: "Packaging Line",
     caption: "Automated filling lines maintaining sterile, contamination-free handling.",
-    photo: null,
+    photo: `${import.meta.env.BASE_URL}packaging-line.jpg`,
   },
   {
     num: "04",
