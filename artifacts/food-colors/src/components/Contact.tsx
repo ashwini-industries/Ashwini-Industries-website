@@ -26,10 +26,12 @@ const PRODUCTS = [
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   company: z.string().min(2, "Company name is required."),
+  email: z.string().email("Enter a valid email address."),
+  phone: z.string().optional(),
   country: z.string().min(2, "Country is required."),
+  quantity: z.string().optional(),
   products: z.array(z.string()).min(1, "Select at least one product."),
-  quantity: z.string().min(1, "Quantity is required."),
-  message: z.string().min(10, "Message must be at least 10 characters."),
+  message: z.string().optional(),
 });
 
 export default function Contact() {
@@ -38,9 +40,11 @@ export default function Contact() {
     defaultValues: {
       name: "",
       company: "",
+      email: "",
+      phone: "",
       country: "",
-      products: [],
       quantity: "",
+      products: [],
       message: "",
     },
   });
@@ -184,6 +188,43 @@ export default function Contact() {
                         <FormControl>
                           <input
                             placeholder="Company"
+                            {...field}
+                            className="w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none text-[#f5f0e8] placeholder:text-[#9e9990]/60 font-sans py-3 transition-colors rounded-none"
+                          />
+                        </FormControl>
+                        <FormMessage className="absolute -bottom-5" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-x-8">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="mb-8 relative">
+                        <FormControl>
+                          <input
+                            placeholder="Email *"
+                            type="email"
+                            {...field}
+                            className="w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none text-[#f5f0e8] placeholder:text-[#9e9990]/60 font-sans py-3 transition-colors rounded-none"
+                          />
+                        </FormControl>
+                        <FormMessage className="absolute -bottom-5" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem className="mb-8 relative">
+                        <FormControl>
+                          <input
+                            placeholder="Phone / WhatsApp"
+                            type="tel"
                             {...field}
                             className="w-full bg-transparent border-b border-[#b8965a]/40 focus:border-[#b8965a] outline-none text-[#f5f0e8] placeholder:text-[#9e9990]/60 font-sans py-3 transition-colors rounded-none"
                           />
