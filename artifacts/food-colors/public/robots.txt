@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ashwini-industries--mishul1815.replit.app/sitemap.xml
