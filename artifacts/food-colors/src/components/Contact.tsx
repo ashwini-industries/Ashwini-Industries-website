@@ -51,7 +51,7 @@ export default function Contact() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_WEB3FORMS_KEY";
+      const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "7e15edb3-9d5c-4aa0-ab96-a1f99c3d655d";
 
       const payload = {
         access_key: accessKey,
