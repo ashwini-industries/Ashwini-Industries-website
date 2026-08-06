@@ -1,0 +1,10 @@
+{
+  "buildCommand": "pnpm --filter @workspace/food-colors run build",
+  "outputDirectory": "artifacts/food-colors/dist/public",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
