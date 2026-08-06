@@ -51,22 +51,42 @@ export default function Contact() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const res = await fetch("/api/inquiry", {
+      const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_WEB3FORMS_KEY";
+
+      const payload = {
+        access_key: accessKey,
+        subject: `New Export Inquiry from ${values.name} — ${values.company} (${values.country})`,
+        from_name: values.name,
+        replyto: values.email,
+        name: values.name,
+        company: values.company,
+        email: values.email,
+        phone: values.phone || "—",
+        country: values.country,
+        quantity: values.quantity || "—",
+        products: values.products.join(", "),
+        message: values.message || "—",
+      };
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
       });
-      if (res.ok) {
+
+      const data = await res.json();
+
+      if (data.success) {
         toast.success("Inquiry Sent!", {
           description: "Our export team will be in touch within 24 hours.",
         });
         form.reset();
       } else {
-        throw new Error("server error");
+        throw new Error(data.message || "Submission failed");
       }
-    } catch {
-      toast.error("Something went wrong", {
-        description: "Please email us directly at export@ashwini-industries.com",
+    } catch (err: any) {
+      toast.error("Submission Issue", {
+        description: err?.message || "Please email us directly at export@ashwini-industries.com",
       });
     }
   }
