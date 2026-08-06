@@ -1,6 +1,6 @@
 [build]
   command = "pnpm --filter @workspace/food-colors run build"
-  publish = "artifacts/food-colors/dist/public"
+  publish = "public"
 
 [[redirects]]
   from = "/*"

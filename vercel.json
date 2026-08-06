@@ -2,7 +2,7 @@
   "framework": "vite",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "buildCommand": "pnpm --filter @workspace/food-colors run build",
-  "outputDirectory": "artifacts/food-colors/dist/public",
+  "outputDirectory": "public",
   "rewrites": [
     {
       "source": "/(.*)",
