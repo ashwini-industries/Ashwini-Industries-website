@@ -66,7 +66,7 @@ export default function Contact() {
       }
     } catch {
       toast.error("Something went wrong", {
-        description: "Please email us directly at jagdish2319@gmail.com",
+        description: "Please email us directly at export@ashwini-industries.com",
       });
     }
   }
@@ -115,7 +115,7 @@ export default function Contact() {
           </a>
 
           <a
-            href="mailto:jagdish2319@gmail.com"
+            href="mailto:export@ashwini-industries.com"
             data-testid="link-email"
             className="flex items-center gap-3 text-[#f5f0e8] hover:text-[#b8965a] transition-colors"
           >
@@ -124,7 +124,7 @@ export default function Contact() {
             </span>
             <span>
               <span className="block font-sans uppercase tracking-widest text-[10px] text-[#9e9990]">Email</span>
-              <span className="font-sans font-semibold text-sm">jagdish2319@gmail.com</span>
+              <span className="font-sans font-semibold text-sm">export@ashwini-industries.com</span>
             </span>
           </a>
         </motion.div>
